@@ -57,6 +57,7 @@ class TimeTravelToolbar(private val listener: Listener) {
             addSeparator()
             add(exportAction())
             add(importAction())
+            add(settingsAction())
         }
 
     private fun connectAction(): AnAction =
@@ -157,6 +158,16 @@ class TimeTravelToolbar(private val listener: Listener) {
             onAction = listener::onImport
         )
 
+    private fun settingsAction(): AnAction =
+        anAction(
+            text = "Settings",
+            icon = AllIcons.General.Settings,
+            onUpdate = {
+
+            },
+            onAction = { listener.onSettings() }
+        )
+
 
     interface Listener {
         fun onConnect()
@@ -171,5 +182,6 @@ class TimeTravelToolbar(private val listener: Listener) {
         fun onDebug()
         fun onExport()
         fun onImport()
+        fun onSettings()
     }
 }

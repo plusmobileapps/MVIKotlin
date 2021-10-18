@@ -167,6 +167,10 @@ class TimeTravelToolWindow(
             client.onImportEventsClicked()
         }
 
+        override fun onSettings() {
+            client.onEditSettingsClicked()
+        }
+
         override fun onEventSelected(index: Int) {
             client.onEventSelected(index = index)
         }
